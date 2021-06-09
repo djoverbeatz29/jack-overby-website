@@ -4,6 +4,13 @@ export default function BlogPost() {
 
     const currDate = new Date(Date.now());
 
+    const handleKeyPress = e => {
+        e.preventDefault();
+        if (e.key === "Enter") {
+            console.log("Comment submitted!\nNow, gotta learn how to persist dat sheeit...");
+        }
+    }
+
     return (
         <div>
             <h1>Here Is The Title Of My Blog Post!</h1>
@@ -13,7 +20,10 @@ export default function BlogPost() {
             <br/>
             <p>Here is what a sample article might look like.</p>
             <p>Not great, but better than nothing, right?</p>
-            <footer>Subscribe for more amazing shit like this!</footer>
+            <form>
+                <input placeholder="Leave a comment!"></input>
+                <input onKeyPress={handleKeyPress}></input>
+            </form>
         </div>
     );
 }
